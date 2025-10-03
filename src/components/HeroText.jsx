@@ -1,15 +1,16 @@
 import { FlipWords } from "./FlipWords";
-const words = ["Secure", "Modern", "Scalable"];
 import { motion } from "motion/react";
+import { useTranslation } from 'react-i18next';
 
 export const HeroText = () => {
+  const { t } = useTranslation();
+  const words = t('hero.words', { returnObjects: true });
   const variants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 }
-}
+  }
     return (
-      <div className="z-10 mt-20 text-center md:mt-40
-      md:text-left rounded-3xl bg-clip-text">
+      <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
           {/* DesktopView */}
           <div className="flex-col hidden md:flex c-space">
               <motion.h1 className="text-4xl font-medium"
@@ -17,7 +18,7 @@ export const HeroText = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: 1 }}>
-                Hello, I'm Adam
+                {t('hero.greeting')}
               </motion.h1> 
               <div className="flex flex-col items-start">
                 <motion.p className="text-5xl font-medium text-neutral-300"
@@ -25,7 +26,7 @@ export const HeroText = () => {
                 initial="hidden"
                 animate="visible"
                 transition={{ delay: 1.2 }}>
-                  A Developer <br />Dedicated to crafting
+                  {t('hero.subtitle')} <br />{t('hero.dedicated')}
                 </motion.p>
                 <motion.div 
                 variants={variants}
@@ -40,7 +41,7 @@ export const HeroText = () => {
                 initial="hidden"
                 animate="visible"
                 transition={{ delay: 1.8 }}>
-                  Web Solutions
+                  {t('hero.webSolutions')}
                   </motion.p>
                 
               </div>        
@@ -52,7 +53,7 @@ export const HeroText = () => {
             initial="hidden"
             animate="visible"
             transition={{ delay: 1 }}>
-              Hello, I'm Adam
+              {t('hero.greeting')}
               </motion.p>
             <div>
               <motion.p className="text-5xl font-black text-neutral-300"
@@ -60,7 +61,7 @@ export const HeroText = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: 1.2 }}>
-                Building
+                {t('hero.building')}
                 </motion.p>
               <motion.div
               variants={variants}
@@ -75,7 +76,7 @@ export const HeroText = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: 1.8 }}>
-                Web Applications
+                {t('hero.webApplications')}
               </motion.p>
             </div>
             

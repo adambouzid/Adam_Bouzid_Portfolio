@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "work": "Projets",
+    "education": "Formation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis Adam",
+    "subtitle": "Un ingénieur logiciel passionné",
+    "dedicated": "Dédié à la création de",
+    "building": "Créer des",
+    "words": ["Sécurisées", "Modernes", "Évolutives"],
+    "webSolutions": "Solutions Web",
+    "webApplications": "Applications Web"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "greeting": "Salut, je suis Adam Bouzid",
+    "description": "Un esprit curieux et un développeur passionné, toujours à la recherche de nouvelles façons de mêler créativité et technologie. Mon objectif est de créer des expériences numériques percutantes qui connectent les gens et les idées.",
+    "codeIsCraft": "Le Code est un Art",
+    "timeZone": "Fuseau horaire",
+    "location": "Basé au Maroc, disponible dans le monde entier",
+    "openOpportunities": "Toujours ouvert à de nouvelles opportunités. Connectons-nous !",
+    "downloadCV": "Télécharger mon CV",
+    "getResume": "Obtenez mon CV complet",
+    "download": "Télécharger",
+    "techStack": "Stack Technique",
+    "techDescription": "Technologies que j'utilise pour créer des applications fiables et évolutives",
+    "hoverToExplore": "Survolez les icônes pour explorer"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "readMore": "en savoir plus"
+  },
+  "education": {
+    "title": "Mon Parcours"
+  },
+  "contact": {
+    "title": "Discutons",
+    "description": "Je suis actuellement étudiant à la recherche d'une opportunité de projet de fin d'études. Si vous avez un projet, un stage ou une collaboration en tête, n'hésitez pas à me contacter. Je serais ravi de contribuer et d'apprendre !",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "placeholder": {
+      "name": "Adam Bouzid",
+      "email": "AdamBouzid@gmail.com",
+      "message": "Partagez vos idées..."
+    },
+    "success": "Message envoyé avec succès",
+    "error": "Une erreur s'est produite"
+  },
+  "footer": {
+    "terms": "Conditions générales",
+    "privacy": "politique de confidentialité",
+    "rights": "© Adam Bouzid. Tous droits réservés."
+  }
+}

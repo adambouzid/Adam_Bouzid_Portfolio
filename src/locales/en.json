@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm Adam",
+    "subtitle": "A passionate Software Engineer",
+    "dedicated": "Dedicated to crafting",
+    "building": "Building",
+    "words": ["Secure", "Modern", "Scalable"],
+    "webSolutions": "Web Solutions",
+    "webApplications": "Web Applications"
+  },
+  "about": {
+    "title": "About Me",
+    "greeting": "Hey there, I'm Adam Bouzid",
+    "description": "A curious mind and passionate developer, always exploring new ways to blend creativity and technology. My goal is to craft impactful digital experiences that connect people and ideas.",
+    "codeIsCraft": "Code is Craft",
+    "timeZone": "Time Zone",
+    "location": "Based in Morocco, available worldwide",
+    "openOpportunities": "Always open to new opportunities. Let's connect!",
+    "downloadCV": "Download CV",
+    "getResume": "Get my full resume",
+    "download": "Download",
+    "techStack": "Tech Stack",
+    "techDescription": "Technologies I use to build reliable and scalable applications",
+    "hoverToExplore": "Hover over icons to explore"
+  },
+  "projects": {
+    "title": "My Projects",
+    "readMore": "read more"
+  },
+  "education": {
+    "title": "My Journey"
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "description": "I'm currently a student seeking a final year project opportunity. If you have a project, internship, or collaboration in mind, feel free to reach out. I'd be happy to contribute and learn!",
+    "fullName": "Full Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "placeholder": {
+      "name": "Adam Bouzid",
+      "email": "AdamBouzid@gmail.com",
+      "message": "Share your Thoughts..."
+    },
+    "success": "Message sent successfully",
+    "error": "Something went wrong"
+  },
+  "footer": {
+    "terms": "Terms & Conditions",
+    "privacy": "privacy policy",
+    "rights": "© Adam Bouzid. All rights reserved."
+  }
+}
