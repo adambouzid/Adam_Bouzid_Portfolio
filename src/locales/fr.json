@@ -18,7 +18,7 @@
   "about": {
     "title": "À propos de moi",
     "greeting": "Salut, je suis Adam Bouzid",
-    "description": "Un esprit curieux et un développeur passionné, toujours à la recherche de nouvelles façons de mêler créativité et technologie. Mon objectif est de créer des expériences numériques percutantes qui connectent les gens et les idées.",
+    "description": "Curieux, créatif et passionné par le code, je m’efforce de transformer des idées en expériences digitales qui ont du sens et qui connectent les personnes entre elles.",
     "codeIsCraft": "Le Code est un Art",
     "timeZone": "Fuseau horaire",
     "location": "Basé au Maroc, disponible dans le monde entier",
@@ -30,7 +30,7 @@
     "techDescription": "Technologies que j'utilise pour créer des applications fiables et évolutives",
     "hoverToExplore": "Survolez les icônes pour explorer"
   },
-  "projects": {
+  "projectsSection": {
     "title": "Mes Projets",
     "readMore": "en savoir plus"
   },
@@ -57,5 +57,87 @@
     "terms": "Conditions générales",
     "privacy": "politique de confidentialité",
     "rights": "© Adam Bouzid. Tous droits réservés."
+  },
+  "projects": {
+    "prolainat": {
+      "title": "Prolainat - Système de Ticketing",
+      "description": "Une application web de gestion de tickets qui centralise, suit et résout les demandes ou incidents au sein d'une organisation.",
+      "subDescription": [
+        "Développé fullstack avec React pour le frontend et Spring Boot pour le backend.",
+        "Implémenté un système de création, mise à jour, suivi et fermeture de tickets.",
+        "Authentification sécurisée avec JWT et contrôle d'accès basé sur les rôles avec Spring Security.",
+        "Protection de session renforcée avec des cookies sécurisés (HttpOnly, Secure, SameSite).",
+        "Interface moderne et responsive avec Tailwind CSS pour une meilleure expérience utilisateur.",
+        "Intégration PostgreSQL avec Spring Data JPA pour assurer une persistance de données fiable."
+      ]
+    },
+    "taskflow": {
+      "title": "TaskFlow - Gestion de Projets",
+      "description": "Une application web complète de gestion de projets qui permet aux équipes de planifier, organiser et suivre l'avancement de leurs tâches et objectifs.",
+      "subDescription": [
+        "Construit avec React pour le frontend et Spring Boot pour le backend, offrant une solution fullstack.",
+        "Gestion de projets avec tâches associées, échéances et suivi de progression via un tableau de bord interactif.",
+        "Authentification basée sur les rôles et gestion sécurisée des sessions avec JWT et Spring Security.",
+        "Expérience utilisateur améliorée avec une interface moderne et responsive conçue avec Tailwind CSS.",
+        "Intégration d'un chatbot alimenté par le modèle 'qwen2.5-vl-32b-instruct' pour aider les utilisateurs à naviguer dans les tâches et répondre aux questions liées au projet.",
+        "Connexion à une base de données MySQL via Spring Data JPA pour un stockage de données fiable."
+      ]
+    },
+    "cabinet_desktop": {
+      "title": "Cabinet Bentaibi - Système de Gestion Desktop",
+      "description": "Une application desktop complète pour gérer les opérations quotidiennes d'un cabinet de physiothérapie incluant la gestion des patients, la planification des rendez-vous et la facturation avec audit complet.",
+      "subDescription": [
+        "Application desktop fullstack avec frontend React + Electron et backend Express.js.",
+        "Gestion des patients, planification des séances et facturation avec suivi du statut Payé/Impayé.",
+        "Authentification sécurisée avec tokens JWT et hachage des mots de passe BCrypt avec contrôle d'accès basé sur les rôles.",
+        "UX intuitive pour le personnel non technique avec workflows guidés et indicateurs visuels clairs.",
+        "Génération de documents PDF professionnels pour factures, calendriers de traitement et dossiers patients.",
+        "Base de données SQLite intégrée avec journalisation complète de l'historique des actions pour la conformité d'audit.",
+        "Synchronisation de données réseau local avec appareils mobiles via points de terminaison REST WiFi."
+      ]
+    },
+    "cabinet_mobile": {
+      "title": "Cabinet Bentaibi - Application Mobile Compagnon",
+      "description": "Une application mobile compagnon offrant un accès en lecture seule aux informations essentielles de la pratique avec synchronisation WiFi et mise en cache hors ligne pour les professionnels de santé en déplacement.",
+      "subDescription": [
+        "Application mobile basée sur React avec design responsive et interface optimisée tactile.",
+        "Communication API REST basée WiFi avec le système desktop pour synchronisation de données en temps réel.",
+        "Découverte automatique du réseau et configuration IP manuelle pour connectivité desktop-mobile transparente.",
+        "Système de mise en cache hors ligne robuste pour assurer un accès ininterrompu aux informations critiques des patients.",
+        "Interface simplifiée pour visualiser patients, rendez-vous quotidiens et statuts de paiement.",
+        "Accès sécurisé en lecture seule avec authentification JWT héritée du système desktop.",
+        "Communication réseau local optimisée avec gestion d'erreurs et indicateurs de statut de connexion.",
+        "Protocoles de synchronisation de données pour maintenir la cohérence entre les vues desktop et mobile."
+      ]
+    }
+  },
+  "experiences": {
+    "prolainat": {
+      "title": "Développeur Full-Stack Stagiaire",
+      "job": "Prolainat Maroc",
+      "date": "Juillet 2024 - Août 2024",
+      "contents": [
+        "Conçu et développé un système de ticketing web pour optimiser la gestion des demandes IT internes.",
+        "Implémenté les fonctionnalités CRUD pour créer, mettre à jour, suivre et fermer les tickets.",
+        "Intégré PostgreSQL avec Spring Data JPA pour assurer une persistance de données fiable et efficace.",
+        "Développé un système d'authentification sécurisé avec JWT et contrôle d'accès basé sur les rôles avec Spring Security.",
+        "Implémenté des mesures de sécurité avancées incluant la protection CSRF, validation des rôles et gestion sécurisée des cookies.",
+        "Géré le déploiement des applications desktop et mobile, configurant le serveur backend et la base de données pour la production.",
+        "Construit une interface moderne, responsive et conviviale avec React et Tailwind CSS."
+      ]
+    },
+    "cabinet": {
+      "title": "Développeur Full-Stack (Freelance)",
+      "job": "Cabinet Bentaibi",
+      "date": "Juillet 2025 – Septembre 2025",
+      "contents": [
+        "Développé une application desktop adaptée à la gestion de cabinet de physiothérapie, incluant dossiers patients, planification de rendez-vous et suivi des traitements.",
+        "Implémenté une communication sécurisée entre l'application desktop et une application mobile compagnon, permettant aux médecins d'accéder aux données essentielles des patients en temps réel.",
+        "Conçu et optimisé un schéma de base de données relationnelle pour supporter un stockage et une récupération de données fiables.",
+        "Intégré l'authentification et le contrôle d'accès pour protéger les informations médicales sensibles.",
+        "Construit une interface moderne et intuitive pour les plateformes desktop et mobile, améliorant l'utilisabilité pour les professionnels de santé.",
+        "Travaillé étroitement avec le client pour recueillir les exigences, livrer des solutions de manière itérative et assurer l'alignement avec les besoins métier."
+      ]
+    }
   }
 }

@@ -12,14 +12,9 @@ const LanguageSwitcher = () => {
   ];
 
   useEffect(() => {
-    // Set direction RTL for Arabic
-    if (i18n.language === 'ar') {
-      document.documentElement.dir = 'rtl';
-      document.documentElement.lang = 'ar';
-    } else {
-      document.documentElement.dir = 'ltr';
-      document.documentElement.lang = i18n.language;
-    }
+    // Set document language
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = i18n.language;
   }, [i18n.language]);
 
   const changeLanguage = (lng) => {

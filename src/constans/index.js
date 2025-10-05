@@ -1,6 +1,7 @@
 export const myProjects = [
     {
       id: 1,
+      translationKey: "prolainat",
       title: "Prolainat - ticketing System",
       description:
         "A web application for ticket management that centralizes, tracks, and resolves requests or incidents within an organization.",
@@ -44,6 +45,7 @@ export const myProjects = [
     },
     {
       id: 2,
+      translationKey: "taskflow",
       title: "TaskFlow - Project Management",
       description:
         "A complete project management web application that enables teams to plan, organize, and track the progress of their tasks and goals.",
@@ -93,6 +95,7 @@ export const myProjects = [
     },
     {
       id: 3,
+      translationKey: "cabinet_desktop",
       title: "Cabinet Bentaibi - Desktop Management System",
       description:
         " A comprehensive desktop application for managing a physiotherapy clinic's daily operations including patient management, appointment scheduling, and billing with complete audit trails.",
@@ -143,6 +146,7 @@ export const myProjects = [
     },
     {
       id: 4,
+      translationKey: "cabinet_mobile",
       title: "Cabinet Bentaibi - Mobile Companion",
       description:
         "A mobile companion app providing read-only access to essential practice information with WiFi synchronization and offline caching for healthcare professionals on the move.",
@@ -194,11 +198,17 @@ export const mySocials = [
         href: "https://www.linkedin.com/in/adam-bouzid-a48b47387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ",
         icon: "/assets/socials/linkedIn.svg",
       },
+      {
+        name: "Github",
+        href: "https://github.com/adambouzid",
+        icon: "/assets/socials/github.svg",
+      },
     ];
 
     
     export const experiences = [
       {
+        translationKey: "prolainat",
         title: "Full-Stack Developer Intern",
         job: "Prolainat Maroc",
         date: "July 2024 - August 2024",
@@ -213,6 +223,7 @@ export const mySocials = [
         ],
       },
       {
+        translationKey: "cabinet",
         title: "Full-Stack Developer (Freelancer)",
         job: "Cabinet Bentaibi",
         date: "July 2025 – September 2025",

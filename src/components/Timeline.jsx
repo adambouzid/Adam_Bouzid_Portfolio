@@ -1,13 +1,28 @@
 "use client";;
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 export const Timeline = ({
   data
 }) => {
+  const { t, i18n } = useTranslation();
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
+
+  // Function to get translated experience data
+  const getTranslatedExperience = (item) => {
+    if (item.translationKey && i18n.language !== 'en') {
+      return {
+        title: t(`experiences.${item.translationKey}.title`, item.title),
+        job: t(`experiences.${item.translationKey}.job`, item.job),
+        date: t(`experiences.${item.translationKey}.date`, item.date),
+        contents: t(`experiences.${item.translationKey}.contents`, { returnObjects: true }) || item.contents
+      };
+    }
+    return item;
+  };
 
   useEffect(() => {
     if (ref.current) {
@@ -30,7 +45,9 @@ export const Timeline = ({
       ref={containerRef}>
         <h2 className="text-heading">My Work Experience</h2>
       <div ref={ref} className="relative pb-10 mt-10">
-        {data.map((item, index) => (
+        {data.map((item, index) => {
+          const translatedItem = getTranslatedExperience(item);
+          return (
           <div key={index} className="flex justify-start pt-6 md:pt-12 md:gap-10">
             <div
               className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
@@ -41,25 +58,25 @@ export const Timeline = ({
               </div>
               <div className="hidden flex-col gap-1 text-xl font-bold md:flex md:pl-16 text-neutral-300">
                 <h3 className="text-2xl text-white">
-                    {item.date}
+                    {translatedItem.date}
                 </h3>
                 <h3 className="text-lg text-neutral-300">
-                    {item.title}
+                    {translatedItem.title}
                 </h3>
                 <h3 className="text-base text-neutral-400">
-                    {item.job}
+                    {translatedItem.job}
                 </h3>
               </div>
             </div>
 
             <div className="relative pl-16 pr-4 md:pl-4 w-full">
              <div className="block mb-4 text-left text-neutral-300 md:hidden">
-                <h3 className="text-xl font-bold text-white">{item.date}</h3>
-                <h4 className="text-lg text-neutral-300">{item.title}</h4>
-                <p className="text-base text-neutral-400">{item.job}</p>
+                <h3 className="text-xl font-bold text-white">{translatedItem.date}</h3>
+                <h4 className="text-lg text-neutral-300">{translatedItem.title}</h4>
+                <p className="text-base text-neutral-400">{translatedItem.job}</p>
              </div>
              <div className="space-y-2">
-               {item.contents.map((content, index) => (
+               {translatedItem.contents.map((content, index) => (
                   <p className="text-sm text-neutral-400 leading-relaxed" key={index}>
                       {content}
                   </p>
@@ -67,7 +84,8 @@ export const Timeline = ({
              </div>
             </div>
           </div>
-        ))}
+          );
+        })}
         <div
           style={{
             height: height + "px",
