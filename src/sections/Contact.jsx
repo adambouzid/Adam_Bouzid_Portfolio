@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser';
 import Alert from '../components/Alert';
 import Particles from '../components/Particles';
+
 const Contact = () => {
     const { t } = useTranslation();
     const [formData, setFormData] = useState({

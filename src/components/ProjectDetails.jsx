@@ -158,7 +158,7 @@ const ProjectDetails = ({
               ))}
             </div>
             {href && (
-              <a href={href} className="inline-flex items-center gap-1 text-sm md:text-base font-medium cursor-pointer hover-animation text-cyan-400 hover:text-cyan-300">
+              <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm md:text-base font-medium cursor-pointer hover-animation text-cyan-400 hover:text-cyan-300">
                 View Project{" "}
                 <img src="assets/arrow-up.svg" className="size-3 md:size-4" />
               </a>

@@ -242,66 +242,77 @@ export const Certif = [
     name: "Introduction to Containers with Docker, Kubernetes & OpenShift",
     designation: "IBM / Coursera - 2024",
     src: "/assets/Certif/Docker,Kubernetes&OpenShift.png",
-    quote: "Hands-on experience with containerization, orchestration, and DevOps practices."
+    quote: "Hands-on experience with containerization, orchestration, and DevOps practices.",
+    url: "https://www.coursera.org/account/accomplishments/verify/877NTIN0T5I9"
   },
   {
     name: "HTML, CSS, and Javascript for Web Developers",
     designation: "Johns Hopkins University / Coursera - 2024",
     src: "/assets/Certif/HTML,CSS,andJavascriptforWebDevelopers.png",
-    quote: "Mastered the foundations of front-end development with responsive and dynamic websites."
+    quote: "Mastered the foundations of front-end development with responsive and dynamic websites.",
+    url: "https://www.coursera.org/account/accomplishments/verify/T4HJ2DAVCXJH"
   },
   {
     name: "Interactivity with JavaScript",
     designation: "University of Michigan / Coursera - 2024",
     src: "/assets/Certif/InteractivitywithJavaScript.png",
-    quote: "Developed interactive features and dynamic behaviors in web applications."
+    quote: "Developed interactive features and dynamic behaviors in web applications.",
+    url: "https://www.coursera.org/account/accomplishments/verify/8TXRHGG3JVXZ"
   },
   {
     name: "Introduction à la Programmation Orientée Objet (C++)",
     designation: "École Polytechnique Fédérale de Lausanne / Coursera - 2024",
     src: "/assets/Certif/Introductionàlaprogrammationorientéeobjet(enC++).png",
-    quote: "Built strong foundations in object-oriented programming with C++."
+    quote: "Built strong foundations in object-oriented programming with C++.",
+    url: "https://www.coursera.org/account/accomplishments/verify/MCQ3GJHJG78M"
   },
   {
     name: "Introduction to CSS3",
     designation: "University of Michigan / Coursera - 2024",
     src: "/assets/Certif/IntroductiontoCSS3.png",
-    quote: "Learned modern styling techniques with CSS3 for responsive UI design."
+    quote: "Learned modern styling techniques with CSS3 for responsive UI design.",
+    url: "https://www.coursera.org/account/accomplishments/verify/QSZ574UWHTF4"
   },
   {
     name: "Introduction to HTML5",
     designation: "University of Michigan / Coursera - 2024",
     src: "/assets/Certif/IntroductiontoHTML5.png",
-    quote: "Structured semantic and accessible web pages using HTML5."
+    quote: "Structured semantic and accessible web pages using HTML5.",
+    url: "https://www.coursera.org/account/accomplishments/verify/LJR4R87SNWB8"
   },
   {
     name: "Introduction to Java and Object-Oriented Programming",
     designation: "University of Pennsylvania / Coursera - 2024",
     src: "/assets/Certif/IntroductiontoJavaandObject-OrientedProgramming.png",
-    quote: "Learned Java fundamentals and object-oriented design principles."
+    quote: "Learned Java fundamentals and object-oriented design principles.",
+    url: "https://www.coursera.org/account/accomplishments/verify/LUGM6C8YWYL4"
   },
   {
     name: "React Basics",
     designation: "Meta / Coursera - 2024",
     src: "/assets/Certif/ReactBasics.png",
-    quote: "Built component-based UIs and managed state with React."
+    quote: "Built component-based UIs and managed state with React.",
+    url: "https://www.coursera.org/account/accomplishments/verify/6D0YUYZRKTNF"
   },
   {
     name: "Software Design and Project Management",
     designation: "Hong Kong University of Science and Technology / Coursera - 2024",
     src: "/assets/Certif/SoftwareDesignand ProjectManagement.png",
-    quote: "Studied software lifecycle, design principles, and project management."
+    quote: "Studied software lifecycle, design principles, and project management.",
+    url: "https://www.coursera.org/account/accomplishments/verify/KALR5RCCP3WM"
   },
   {
     name: "The Art of the Job Interview",
     designation: "Big Interview / Coursera - 2024",
     src: "/assets/Certif/TheArtoftheJobInterview.png",
-    quote: "Prepared for interviews with effective communication and problem-solving strategies."
+    quote: "Prepared for interviews with effective communication and problem-solving strategies.",
+    url: "https://www.coursera.org/account/accomplishments/verify/XTHY47DKLTA4"
   },
   {
     name: "Virtual Networks in Azure",
     designation: "Microsoft Learn / Coursera - 2024",
     src: "/assets/Certif/VirtualNetworksinAzure.png",
-    quote: "Explored cloud networking, Azure VNets, and secure deployments."
+    quote: "Explored cloud networking, Azure VNets, and secure deployments.",
+    url: "https://www.coursera.org/account/accomplishments/verify/N6W7RYYWQMES"
   }
 ];

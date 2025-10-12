@@ -22,25 +22,29 @@ const Diplomat = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="rounded-3xl bg-gradient-to-br from-midnight via-navy to-midnight border border-white/5 p-6 md:p-8"
+        className="rounded-3xl bg-gradient-to-br from-midnight via-navy to-midnight border border-white/5 p-6 md:p-8 hover:border-white/10 transition-all duration-300"
       >
-        <div className="flex items-start gap-4 md:gap-6">
-          {/* Icon */}
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-            <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
+        <div className="flex items-center gap-6">
+          {/* EMSI Logo */}
+          <div className="w-28 h-28 md:w-40 md:h-40 rounded-2xl flex-shrink-0 shadow-xl ring-2 ring-orange-500/20 bg-orange-500/5 p-4 md:p-5 flex items-center justify-center">
+            <img 
+              src="/assets/emsi_logo.avif" 
+              alt="EMSI Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
 
           {/* Content */}
-          <div className="flex-1">
-            <p className="text-xl md:text-2xl text-neutral-300 mb-2">{education.degree}</p>
-            <div className="flex flex-col md:flex-row md:items-center gap-2 mb-3">
-              <p className="text-lg md:text-xl font-semibold text-white">{education.school}</p>
-              <span className="text-sm md:text-base text-cyan-400 font-medium">{education.year}</span>
+          <div className="flex-1 space-y-2">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{education.degree}</h3>
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="text-xl md:text-2xl font-semibold text-white">{education.school}</p>
+                <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-medium text-sm">{education.year}</span>
+              </div>
             </div>
-            <p className="text-sm md:text-base text-neutral-400 mb-3">{education.period}</p>
-            <p className="text-neutral-400 text-sm md:text-base leading-relaxed">{education.description}</p>
+            <p className="text-base md:text-lg text-neutral-400 font-medium">{education.period}</p>
+            <p className="text-neutral-400 text-sm md:text-base leading-relaxed pt-2 border-t border-white/5">{education.description}</p>
           </div>
         </div>
       </motion.div>

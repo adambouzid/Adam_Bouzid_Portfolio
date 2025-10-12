@@ -20,6 +20,7 @@
     "cobe": "^0.6.5",
     "d3-geo": "^3.1.1",
     "globe.gl": "^2.44.0",
+    "gsap": "^3.13.0",
     "i18next": "^25.5.3",
     "i18next-browser-languagedetector": "^8.2.0",
     "lucide-react": "^0.544.0",
