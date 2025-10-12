@@ -2,7 +2,7 @@ import Card from "../components/Card";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import CopyEmailButton from "../components/CopyEmailButton";
-import {Globe} from "../components/Globe";
+import {Globe} from "../components/Globe.jsx";
 import {Frameworks} from "../components/Frameworks";
 const About = () => {
     const { t } = useTranslation();
