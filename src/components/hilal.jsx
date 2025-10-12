@@ -13,7 +13,8 @@ export function Hilal(props) {
   const group = useRef()
   const baseRotation = useRef([0, 0, 0])
   const [glowIntensity, setGlowIntensity] = useState(0)
-  const { nodes, materials } = useGLTF('/models/hilal.glb')
+  const modelUrl = '/models/hilal.min.glb'
+  const { nodes, materials } = useGLTF(modelUrl)
   const { viewport } = useThree()
   const isMobile = props.isMobile || false
   
@@ -123,4 +124,4 @@ export function Hilal(props) {
   )
 }
 
-useGLTF.preload('/models/hilal.glb')
+useGLTF.preload('/models/hilal.min.glb')

@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
+    "@gltf-transform/cli": "^4.2.1",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.2",
