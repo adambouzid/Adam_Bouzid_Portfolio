@@ -46,8 +46,13 @@ const Navbar = () => {
             <div className="mx-auto c-space max-w-7xl">
                 <div className="flex items-center justify-between py-2 sm:py-0">
                     <div className="flex items-center gap-3 sm:gap-6">
-                        <a href="/" className="text-lg sm:text-xl font-bold transition-colors text-neutral-400 hover:text-white">
-                            Adam Bouzid
+                        <a href="/" className="flex items-center gap-2 group">
+                            <img
+                              src="/assets/AdamBouzid_Logo.svg"
+                              alt="Adam Bouzid logo"
+                              className="h-8 w-8 rounded-md object-cover ring-1 ring-white/10 group-hover:ring-white/30 transition"
+                            />
+                            <span className="text-lg sm:text-xl font-bold transition-colors text-neutral-400 group-hover:text-white">Adam Bouzid</span>
                         </a>
                         <LanguageSwitcher />
                     </div>
