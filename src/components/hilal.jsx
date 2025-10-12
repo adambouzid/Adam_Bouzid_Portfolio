@@ -15,6 +15,7 @@ export function Hilal(props) {
   const [glowIntensity, setGlowIntensity] = useState(0)
   const { nodes, materials } = useGLTF('/models/hilal.glb')
   const { viewport } = useThree()
+  const isMobile = props.isMobile || false
   
   // Animation de flottement doux comme une lune
   const yPosition = useMotionValue(5)
@@ -43,30 +44,47 @@ export function Hilal(props) {
     const mx = state.mouse.x // -1..1
     const my = state.mouse.y // -1..1
     
-    // Mouse control rotation
-    group.current.rotation.x = bx + my * 0.08
-    group.current.rotation.y = by + mx * 0.12
-    group.current.rotation.z = bz + Math.sin(time * 0.2) * 0.05
+    // Mouse control rotation - only on desktop
+    if (!isMobile) {
+      group.current.rotation.x = bx + my * 0.08
+      group.current.rotation.y = by + mx * 0.12
+      group.current.rotation.z = bz + Math.sin(time * 0.2) * 0.05
+    } else {
+      // On mobile, keep base rotation with gentle float
+      group.current.rotation.x = bx
+      group.current.rotation.y = by
+      group.current.rotation.z = bz + Math.sin(time * 0.2) * 0.05
+    }
 
-    // Mouse proximity glow effect
-    const hilalPos = group.current.position.clone()
-    const mouseX = (mx * viewport.width) / 2
-    const mouseY = (my * viewport.height) / 2
-    
-    const distance = Math.sqrt(
-      Math.pow(hilalPos.x - mouseX, 2) + 
-      Math.pow(hilalPos.y - mouseY, 2)
-    )
-    
-    // Glow increases when mouse is closer (within 3 units)
-    const maxDistance = 3
-    const proximity = Math.max(0, 1 - (distance / maxDistance))
-    const newGlow = proximity * 3 // 0 to 3
-    setGlowIntensity(newGlow)
-    
-    // Send glow intensity to parent for page-wide effect
-    if (props.onGlowChange) {
-      props.onGlowChange(newGlow)
+    // Mouse proximity glow effect - ONLY on desktop
+    if (!isMobile) {
+      const hilalPos = group.current.position.clone()
+      const mouseX = (mx * viewport.width) / 2
+      const mouseY = (my * viewport.height) / 2
+      
+      const distance = Math.sqrt(
+        Math.pow(hilalPos.x - mouseX, 2) + 
+        Math.pow(hilalPos.y - mouseY, 2)
+      )
+      
+      // Glow increases when mouse is closer (within 3 units)
+      const maxDistance = 3
+      const proximity = Math.max(0, 1 - (distance / maxDistance))
+      const newGlow = proximity * 3 // 0 to 3
+      setGlowIntensity(newGlow)
+      
+      // Send glow intensity to parent for page-wide effect
+      if (props.onGlowChange) {
+        props.onGlowChange(newGlow)
+      }
+    } else {
+      // On mobile, keep glow at 0
+      if (glowIntensity !== 0) {
+        setGlowIntensity(0)
+        if (props.onGlowChange) {
+          props.onGlowChange(0)
+        }
+      }
     }
   })
   
@@ -89,7 +107,7 @@ export function Hilal(props) {
       {/* Subtle point light that glows with mouse proximity */}
       <pointLight 
         color={'#60a5fa'} 
-        intensity={0.5 + glowIntensity * 1.5} 
+        intensity={isMobile ? 0.2 : (0.5 + glowIntensity * 1.5)} 
         distance={3} 
         position={[0, 0, 0.8]} 
       />
@@ -97,7 +115,7 @@ export function Hilal(props) {
       {/* Very subtle rim light on the back */}
       <pointLight 
         color={'#3b82f6'} 
-        intensity={0.3 + glowIntensity * 0.8} 
+        intensity={isMobile ? 0.1 : (0.3 + glowIntensity * 0.8)} 
         distance={2} 
         position={[0, 0, -0.5]} 
       />

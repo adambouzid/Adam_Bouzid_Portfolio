@@ -56,14 +56,16 @@ const Hero = () => {
           <HeroText />
           <ParallaxBackground />
           
-          {/* Page-wide glow when mouse near Hilal */}
-          <div 
-            className="fixed inset-0 pointer-events-none z-10"
-            style={{
-              background: `radial-gradient(circle at 70% 50%, rgba(96, 165, 250, ${pageGlow * 0.15}), transparent 60%)`,
-              transition: 'background 0.3s ease-out',
-            }}
-          />
+          {/* Page-wide glow when mouse near Hilal - Desktop only */}
+          {!isMobile && (
+            <div 
+              className="fixed inset-0 pointer-events-none z-10"
+              style={{
+                background: `radial-gradient(circle at 70% 50%, rgba(96, 165, 250, ${pageGlow * 0.15}), transparent 60%)`,
+                transition: 'background 0.3s ease-out',
+              }}
+            />
+          )}
           <figure className="absolute inset-0"
                   style={{
                     width: "100vw", 
@@ -95,7 +97,7 @@ const Hero = () => {
                 floatIntensity={0.4}
                 floatingRange={[-0.1, 0.1]}
               >
-                <Hilal {...getHilalProps()} onGlowChange={setPageGlow} />
+                <Hilal {...getHilalProps()} onGlowChange={setPageGlow} isMobile={isMobile} />
               </Float>
              </Suspense>
               <Rig />
