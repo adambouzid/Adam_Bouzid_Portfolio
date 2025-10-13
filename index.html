@@ -76,7 +76,7 @@
           <h1>Adam Bouzid</h1>
           <p>Software Engineer crafting scalable web solutions</p>
           <p>Please enable JavaScript to view the full portfolio experience.</p>
-          <a href="mailto:adambojzid2003@gmail.com" style="color: #60a5fa;">Contact: bouzidadam003@gmail.com</a>
+          <a href="mailto:bouzidadam003@gmail.com" style="color: #60a5fa;">Contact: bouzidadam003@gmail.com</a>
         </div>
       </noscript>
       <!-- Loading indicator -->
@@ -92,12 +92,35 @@
     </div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
-      // Show loading indicator after 2 seconds if React hasn't loaded
-      setTimeout(() => {
-        if (!window.React && document.getElementById('loading-fallback')) {
-          document.getElementById('loading-fallback').style.display = 'block';
+      // Show loading indicator immediately, hide when React loads
+      document.getElementById('loading-fallback').style.display = 'block';
+      
+      // Hide loading after React loads or show fallback after timeout
+      let loadingTimeout = setTimeout(() => {
+        const loadingEl = document.getElementById('loading-fallback');
+        const rootEl = document.getElementById('root');
+        if (loadingEl && rootEl && rootEl.children.length <= 2) {
+          // React didn't load properly, show static fallback
+          rootEl.innerHTML = `
+            <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif; background: #0a0e27; color: white; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+              <h1 style="color: #60a5fa; margin-bottom: 1rem;">Adam Bouzid</h1>
+              <p style="margin-bottom: 1rem;">Software Engineer crafting scalable web solutions</p>
+              <p style="margin-bottom: 2rem;">Portfolio optimized for desktop. Mobile version loading...</p>
+              <div style="margin-bottom: 2rem;">
+                <a href="mailto:bouzidadam003@gmail.com" style="color: #60a5fa; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #60a5fa; border-radius: 0.5rem;">Contact Me</a>
+              </div>
+              <p style="font-size: 0.9rem; opacity: 0.7;">React • TypeScript • Full Stack Development</p>
+            </div>
+          `;
         }
-      }, 2000);
+      }, 5000);
+      
+      // Clear timeout if React loads successfully
+      window.addEventListener('load', () => {
+        clearTimeout(loadingTimeout);
+        const loadingEl = document.getElementById('loading-fallback');
+        if (loadingEl) loadingEl.style.display = 'none';
+      });
     </script>
     <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8d4f82c5a5f94e86a766d7ba871814f8"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>
