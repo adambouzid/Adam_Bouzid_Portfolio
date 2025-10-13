@@ -72,18 +72,6 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     
-    <!-- Mobile debugging console - Remove after debugging -->
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script>
-      // Only show debug console on mobile devices
-      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        eruda.init();
-        console.log('Mobile debug console loaded');
-        console.log('User Agent:', navigator.userAgent);
-        console.log('Screen size:', window.screen.width + 'x' + window.screen.height);
-        console.log('Viewport size:', window.innerWidth + 'x' + window.innerHeight);
-      }
-    </script>
     
     <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8d4f82c5a5f94e86a766d7ba871814f8"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>
