@@ -68,8 +68,70 @@
     }
     </script>
   </head>
-  <body>
-    <div id="root"></div>
+  <body style="margin: 0; background: #0a0e27; color: white; font-family: system-ui, sans-serif;">
+    <!-- Always visible fallback content -->
+    <div id="mobile-fallback" style="padding: 2rem; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);">
+      <h1 style="color: #60a5fa; margin-bottom: 1rem; font-size: 2.5rem;">Adam Bouzid</h1>
+      <p style="margin-bottom: 1rem; font-size: 1.2rem;">Software Engineer</p>
+      <p style="margin-bottom: 2rem; opacity: 0.8;">Crafting scalable web solutions</p>
+      <div style="margin-bottom: 2rem;">
+        <a href="mailto:bouzidadam003@gmail.com" style="color: #60a5fa; text-decoration: none; padding: 0.75rem 1.5rem; border: 2px solid #60a5fa; border-radius: 0.5rem; display: inline-block; transition: all 0.3s;">📧 Contact Me</a>
+      </div>
+      <div style="margin-bottom: 2rem;">
+        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 0.5rem;">Tech Stack:</p>
+        <p style="font-size: 0.9rem; opacity: 0.7;">React • TypeScript • Node.js • Full Stack Development</p>
+      </div>
+      <p style="font-size: 0.8rem; opacity: 0.5;">Portfolio optimized for desktop • Mobile version</p>
+    </div>
+    
+    <div id="root" style="display: none;">
+      <!-- React app will show here and hide the fallback -->
+    </div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Mobile debugging console - Remove after debugging -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>
+      // Only show debug console on mobile devices
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        eruda.init();
+        console.log('Mobile debug console loaded');
+        console.log('User Agent:', navigator.userAgent);
+        console.log('Screen size:', window.screen.width + 'x' + window.screen.height);
+        console.log('Viewport size:', window.innerWidth + 'x' + window.innerHeight);
+      }
+    </script>
+    
+    <script>
+      // Show loading indicator immediately, hide when React loads
+      document.getElementById('loading-fallback').style.display = 'block';
+      
+      // Hide loading after React loads or show fallback after timeout
+      let loadingTimeout = setTimeout(() => {
+        const loadingEl = document.getElementById('loading-fallback');
+        const rootEl = document.getElementById('root');
+        if (loadingEl && rootEl && rootEl.children.length <= 2) {
+          // React didn't load properly, show static fallback
+          rootEl.innerHTML = `
+            <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif; background: #0a0e27; color: white; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+              <h1 style="color: #60a5fa; margin-bottom: 1rem;">Adam Bouzid</h1>
+              <p style="margin-bottom: 1rem;">Software Engineer crafting scalable web solutions</p>
+              <p style="margin-bottom: 2rem;">Portfolio optimized for desktop. Mobile version loading...</p>
+              <div style="margin-bottom: 2rem;">
+                <a href="mailto:bouzidadam003@gmail.com" style="color: #60a5fa; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #60a5fa; border-radius: 0.5rem;">Contact Me</a>
+              </div>
+              <p style="font-size: 0.9rem; opacity: 0.7;">React • TypeScript • Full Stack Development</p>
+            </div>
+          `;
+        }
+      }, 5000);
+      
+      // Clear timeout if React loads successfully
+      window.addEventListener('load', () => {
+        clearTimeout(loadingTimeout);
+        const loadingEl = document.getElementById('loading-fallback');
+        if (loadingEl) loadingEl.style.display = 'none';
+      });
+    </script>
     <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8d4f82c5a5f94e86a766d7ba871814f8"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>
