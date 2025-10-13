@@ -68,42 +68,8 @@
     }
     </script>
   </head>
-  <body style="margin: 0; background: #0a0e27; color: white; font-family: system-ui, sans-serif;">
-    <!-- Always visible fallback content -->
-    <div id="mobile-fallback" style="padding: 2rem; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);">
-      <h1 style="color: #60a5fa; margin-bottom: 1rem; font-size: 2.5rem;">Adam Bouzid</h1>
-      <p style="margin-bottom: 1rem; font-size: 1.2rem;">Software Engineer</p>
-      <p style="margin-bottom: 2rem; opacity: 0.8;">Crafting scalable web solutions</p>
-      <div style="margin-bottom: 2rem;">
-        <a href="mailto:bouzidadam003@gmail.com" style="color: #60a5fa; text-decoration: none; padding: 0.75rem 1.5rem; border: 2px solid #60a5fa; border-radius: 0.5rem; display: inline-block; transition: all 0.3s;">📧 Contact Me</a>
-      </div>
-      <div style="margin-bottom: 2rem;">
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 0.5rem;">Tech Stack:</p>
-        <p style="font-size: 0.9rem; opacity: 0.7;">React • TypeScript • Node.js • Full Stack Development</p>
-      </div>
-      <p style="font-size: 0.8rem; opacity: 0.5;">Portfolio optimized for desktop • Mobile version</p>
-    </div>
-    
-    <div id="root" style="display: none;">
-      <!-- React app will show here and hide the fallback -->
-    </div>
+  <body>
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      // When React loads successfully, hide the fallback and show the app
-      window.addEventListener('DOMContentLoaded', () => {
-        // Check if React app loaded after a delay
-        setTimeout(() => {
-          const rootEl = document.getElementById('root');
-          const fallbackEl = document.getElementById('mobile-fallback');
-          
-          // If React loaded content, hide fallback and show React app
-          if (rootEl && rootEl.children.length > 0 && rootEl.innerHTML.trim() !== '') {
-            if (fallbackEl) fallbackEl.style.display = 'none';
-            rootEl.style.display = 'block';
-          }
-          // If React didn't load, fallback stays visible (already shown by default)
-        }, 3000);
-      });
-    </script>
     <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8d4f82c5a5f94e86a766d7ba871814f8"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>

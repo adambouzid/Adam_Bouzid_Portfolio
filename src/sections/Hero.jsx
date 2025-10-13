@@ -66,44 +66,46 @@ const Hero = () => {
               }}
             />
           )}
-          <figure className="absolute inset-0"
-                  style={{
-                    width: "100vw", 
-                    height: "100vh",
-                    pointerEvents: isMobile ? 'none' : 'auto'
-                  }}
-          >
-            
-            <Canvas camera={{position: [0, 1, 3]}}>
-              <Suspense fallback={<Loader />}>
-              {/* Lumières optimisées pour Hilal cyan lumineux */}
-              <ambientLight intensity={0.8} color="#e0f2fe" />
-              <directionalLight position={[5, 5, 5]} intensity={2} color="#38bdf8" />
-              <directionalLight position={[-5, -5, -5]} intensity={1.2} color="#0ea5e9" />
-              <pointLight position={[2, 3, 2]} intensity={3} color="#06b6d4" />
-              <pointLight position={[-2, 2, 1]} intensity={2} color="#22d3ee" />
-              <spotLight 
-                position={[0, 5, 0]} 
-                angle={0.6}
-                penumbra={1}
-                intensity={2}
-                target-position={[0, 0, 0]}
-              />
+          {!isMobile && (
+            <figure className="absolute inset-0"
+                    style={{
+                      width: "100vw", 
+                      height: "100vh",
+                      pointerEvents: 'auto'
+                    }}
+            >
               
-              {/* Hilal - Croissant de lune mystique */}
-              <Float 
-                speed={1.2} 
-                rotationIntensity={0.2} 
-                floatIntensity={0.4}
-                floatingRange={[-0.1, 0.1]}
-              >
-                <Hilal {...getHilalProps()} onGlowChange={setPageGlow} isMobile={isMobile} />
-              </Float>
-             </Suspense>
-              <Rig />
-            </Canvas>
-            
-          </figure>
+              <Canvas camera={{position: [0, 1, 3]}}>
+                <Suspense fallback={<Loader />}>
+                {/* Lumières optimisées pour Hilal cyan lumineux */}
+                <ambientLight intensity={0.8} color="#e0f2fe" />
+                <directionalLight position={[5, 5, 5]} intensity={2} color="#38bdf8" />
+                <directionalLight position={[-5, -5, -5]} intensity={1.2} color="#0ea5e9" />
+                <pointLight position={[2, 3, 2]} intensity={3} color="#06b6d4" />
+                <pointLight position={[-2, 2, 1]} intensity={2} color="#22d3ee" />
+                <spotLight 
+                  position={[0, 5, 0]} 
+                  angle={0.6}
+                  penumbra={1}
+                  intensity={2}
+                  target-position={[0, 0, 0]}
+                />
+                
+                {/* Hilal - Croissant de lune mystique */}
+                <Float 
+                  speed={1.2} 
+                  rotationIntensity={0.2} 
+                  floatIntensity={0.4}
+                  floatingRange={[-0.1, 0.1]}
+                >
+                  <Hilal {...getHilalProps()} onGlowChange={setPageGlow} isMobile={isMobile} />
+                </Float>
+               </Suspense>
+                <Rig />
+              </Canvas>
+              
+            </figure>
+          )}
       </section>
   
     );
