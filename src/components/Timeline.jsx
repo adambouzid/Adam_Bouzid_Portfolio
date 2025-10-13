@@ -14,11 +14,12 @@ export const Timeline = ({
   // Function to get translated experience data
   const getTranslatedExperience = (item) => {
     if (item.translationKey && i18n.language !== 'en') {
+      const translatedContents = t(`experiences.${item.translationKey}.contents`, { returnObjects: true });
       return {
         title: t(`experiences.${item.translationKey}.title`, item.title),
         job: t(`experiences.${item.translationKey}.job`, item.job),
         date: t(`experiences.${item.translationKey}.date`, item.date),
-        contents: t(`experiences.${item.translationKey}.contents`, { returnObjects: true }) || item.contents
+        contents: Array.isArray(translatedContents) ? translatedContents : item.contents
       };
     }
     return item;
@@ -76,11 +77,16 @@ export const Timeline = ({
                 <p className="text-base text-neutral-400">{translatedItem.job}</p>
              </div>
              <div className="space-y-2">
-               {translatedItem.contents.map((content, index) => (
-                  <p className="text-sm text-neutral-400 leading-relaxed" key={index}>
-                      {content}
-                  </p>
-               ))}
+               {translatedItem.contents && Array.isArray(translatedItem.contents) ? 
+                 translatedItem.contents.map((content, index) => (
+                    <p className="text-sm text-neutral-400 leading-relaxed" key={index}>
+                        {content}
+                    </p>
+                 )) : 
+                 <p className="text-sm text-neutral-400 leading-relaxed">
+                   No content available
+                 </p>
+               }
              </div>
             </div>
           </div>
