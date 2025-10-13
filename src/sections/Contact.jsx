@@ -41,7 +41,7 @@ const Contact = () => {
                 to_name: "Adam Bouzid",
                 email: formData.email,
                 reply_to: formData.email,
-                to_email: "bouzidadam003@gmail.com",
+                to_email: "adambojzid2003@gmail.com",
                 message: formData.message,
             },'WDE2nCc4_ye8mLm9x');
             setIsLoading(false);
