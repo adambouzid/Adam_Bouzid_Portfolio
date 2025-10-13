@@ -103,35 +103,27 @@
     </script>
     
     <script>
-      // Show loading indicator immediately, hide when React loads
-      document.getElementById('loading-fallback').style.display = 'block';
-      
-      // Hide loading after React loads or show fallback after timeout
-      let loadingTimeout = setTimeout(() => {
-        const loadingEl = document.getElementById('loading-fallback');
+      // Simple React detection - hide fallback when React loads
+      let checkReactLoaded = setInterval(() => {
         const rootEl = document.getElementById('root');
-        if (loadingEl && rootEl && rootEl.children.length <= 2) {
-          // React didn't load properly, show static fallback
-          rootEl.innerHTML = `
-            <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif; background: #0a0e27; color: white; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
-              <h1 style="color: #60a5fa; margin-bottom: 1rem;">Adam Bouzid</h1>
-              <p style="margin-bottom: 1rem;">Software Engineer crafting scalable web solutions</p>
-              <p style="margin-bottom: 2rem;">Portfolio optimized for desktop. Mobile version loading...</p>
-              <div style="margin-bottom: 2rem;">
-                <a href="mailto:bouzidadam003@gmail.com" style="color: #60a5fa; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid #60a5fa; border-radius: 0.5rem;">Contact Me</a>
-              </div>
-              <p style="font-size: 0.9rem; opacity: 0.7;">React • TypeScript • Full Stack Development</p>
-            </div>
-          `;
+        const fallbackEl = document.getElementById('mobile-fallback');
+        
+        // If React has loaded content, hide fallback
+        if (rootEl && rootEl.children.length > 0 && rootEl.innerHTML.trim() !== '') {
+          if (fallbackEl) {
+            fallbackEl.style.display = 'none';
+            rootEl.style.display = 'block';
+          }
+          clearInterval(checkReactLoaded);
+          console.log('React app loaded successfully');
         }
-      }, 5000);
+      }, 1000);
       
-      // Clear timeout if React loads successfully
-      window.addEventListener('load', () => {
-        clearTimeout(loadingTimeout);
-        const loadingEl = document.getElementById('loading-fallback');
-        if (loadingEl) loadingEl.style.display = 'none';
-      });
+      // Stop checking after 10 seconds (fallback stays visible)
+      setTimeout(() => {
+        clearInterval(checkReactLoaded);
+        console.log('React loading timeout - showing fallback');
+      }, 10000);
     </script>
     <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8d4f82c5a5f94e86a766d7ba871814f8"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>
