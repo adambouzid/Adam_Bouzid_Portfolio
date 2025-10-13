@@ -32,6 +32,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     
+    <!-- Performance optimizations -->
+    <link rel="preload" href="/assets/coding-pov.png" as="image" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -62,7 +69,35 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Fallback content for when JavaScript fails -->
+      <noscript>
+        <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif;">
+          <h1>Adam Bouzid</h1>
+          <p>Software Engineer crafting scalable web solutions</p>
+          <p>Please enable JavaScript to view the full portfolio experience.</p>
+          <a href="mailto:adambojzid2003@gmail.com" style="color: #60a5fa;">Contact: bouzidadam003@gmail.com</a>
+        </div>
+      </noscript>
+      <!-- Loading indicator -->
+      <div id="loading-fallback" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: system-ui, sans-serif; display: none;">
+        <div style="text-align: center;">
+          <div style="width: 40px; height: 40px; border: 3px solid #f3f3f3; border-top: 3px solid #60a5fa; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+          <p>Loading portfolio...</p>
+        </div>
+        <style>
+          @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        </style>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <script>
+      // Show loading indicator after 2 seconds if React hasn't loaded
+      setTimeout(() => {
+        if (!window.React && document.getElementById('loading-fallback')) {
+          document.getElementById('loading-fallback').style.display = 'block';
+        }
+      }, 2000);
+    </script>
+    <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8d4f82c5a5f94e86a766d7ba871814f8"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>

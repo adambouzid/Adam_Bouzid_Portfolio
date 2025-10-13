@@ -1,5 +1,5 @@
 import { section } from 'motion/react-client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser';
 import Alert from '../components/Alert';
@@ -13,6 +13,11 @@ const Contact = () => {
         message: ""
     });
     const [isloading, setIsLoading] = useState(false)
+    
+    // Initialize EmailJS
+    useEffect(() => {
+        emailjs.init('WDE2nCc4_ye8mLm9x');
+    }, []);
     const [showAlert, setShowAlert] = useState(false);
     const [alertType, setAlertType] = useState("success");
     const [alertMessage, setAlertMessage] = useState("");
@@ -39,11 +44,10 @@ const Contact = () => {
             await emailjs.send('service_eeo1lpu', 'template_zdvuh2a', {
                 from_name: formData.name,
                 to_name: "Adam Bouzid",
-                email: formData.email,
+                from_email: formData.email,
                 reply_to: formData.email,
-                to_email: "bouzidadam003@gmail.com",
                 message: formData.message,
-            },'WDE2nCc4_ye8mLm9x');
+            });
             setIsLoading(false);
             setFormData({
                 name: "", 
