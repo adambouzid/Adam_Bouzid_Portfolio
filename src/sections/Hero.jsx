@@ -17,6 +17,15 @@ const Hero = () => {
   const is4K = useMediaQuery({minWidth: "2561px"});
   const [pageGlow, setPageGlow] = useState(0);
   
+  // Detect Samsung Internet and other problematic browsers
+  const isSamsungBrowser = typeof navigator !== 'undefined' && 
+    (navigator.userAgent.includes('SamsungBrowser') || 
+     navigator.userAgent.includes('Samsung') ||
+     !window.WebGLRenderingContext);
+  
+  // Disable 3D for mobile OR Samsung browser
+  const shouldDisable3D = isMobile || isSamsungBrowser;
+  
  
   const getHilalProps = () => {
     if (isMobile) {
@@ -57,7 +66,7 @@ const Hero = () => {
           <ParallaxBackground />
           
           {/* Page-wide glow when mouse near Hilal - Desktop only */}
-          {!isMobile && (
+          {!shouldDisable3D && (
             <div 
               className="fixed inset-0 pointer-events-none z-10"
               style={{
@@ -66,7 +75,7 @@ const Hero = () => {
               }}
             />
           )}
-          {!isMobile && (
+          {!shouldDisable3D && (
             <figure className="absolute inset-0"
                     style={{
                       width: "100vw", 
@@ -105,6 +114,19 @@ const Hero = () => {
               </Canvas>
               
             </figure>
+          )}
+          
+          {/* Samsung Internet browser notice */}
+          {isSamsungBrowser && !isMobile && (
+            <div className="fixed bottom-4 right-4 bg-blue-900/80 text-white p-3 rounded-lg text-sm max-w-xs z-50">
+              <p className="mb-2">For the best experience with 3D effects, try opening in Chrome or Firefox.</p>
+              <button 
+                onClick={() => document.querySelector('[class*="fixed bottom-4"]').style.display = 'none'}
+                className="text-blue-300 underline text-xs"
+              >
+                Dismiss
+              </button>
+            </div>
           )}
       </section>
   
