@@ -9,12 +9,13 @@ import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 import Snowfall from 'react-snowfall';
 import { useMediaQuery } from 'react-responsive';
+import SnowCap from './components/SnowCap';
 
 const App = () => {
   const isMobile = useMediaQuery({ maxWidth: '853px' });
   const snowflakeCount = isMobile ? 60 : 140;
   return (
-    <div className="container ms-auto max-w-7xl 2xl:max-w-[1600px] overflow-x-hidden">
+    <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px] overflow-x-hidden">
       <Snowfall
         snowflakeCount={snowflakeCount}
         style={{
@@ -27,22 +28,28 @@ const App = () => {
         }}
       />
       <Navbar />
-      <div id="home" className="mb-20">
+      <div id="home" className="relative mb-20">
+        <SnowCap />
         <Hero />
       </div>
-      <div id="about" className="md:mb-64 mb-20">
+      <div id="about" className="relative md:mb-64 mb-20">
+        <SnowCap />
         <About />
       </div>
-      <div id="work" className="mb-20">
+      <div id="work" className="relative mb-20">
+        <SnowCap />
         <Projects />
         <Experiences />
       </div>
-      <div id="EducationANDCertif">
+      <div id="EducationANDCertif" className="relative">
+        <SnowCap />
         <EducationANDCertif />
       </div>
-      <div id="contact">
+      <div id="contact" className="relative">
+        <SnowCap />
         <Contact />
       </div>
+
       <Footer/>
     </div>
   )
