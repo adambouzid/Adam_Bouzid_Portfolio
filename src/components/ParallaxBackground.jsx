@@ -41,10 +41,12 @@ const ParallaxBackground = () => {
       <div 
         className='fixed inset-0 w-full h-full min-h-screen -z-50'
         style={{
-          backgroundImage: "url('/assets/parallax/sky.jpg')",
+          backgroundImage: "url('/assets/parallax/skysnow.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center center",
+          backgroundPosition: "center bottom",
           backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          filter: "brightness(0.7)",
         }}
       />
       

@@ -9,7 +9,6 @@ import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 import Snowfall from 'react-snowfall';
 import { useMediaQuery } from 'react-responsive';
-import SnowCap from './components/SnowCap';
 
 const App = () => {
   const isMobile = useMediaQuery({ maxWidth: '853px' });
@@ -28,25 +27,21 @@ const App = () => {
         }}
       />
       <Navbar />
-      <div id="home" className="relative mb-20">
-        <SnowCap />
+      <div id="home" className="mb-20">
         <Hero />
       </div>
-      <div id="about" className="relative md:mb-64 mb-20">
-        <SnowCap />
+
+      <div id="about" className="md:mb-64 mb-20">
         <About />
       </div>
-      <div id="work" className="relative mb-20">
-        <SnowCap />
+      <div id="work" className="mb-20">
         <Projects />
         <Experiences />
       </div>
-      <div id="EducationANDCertif" className="relative">
-        <SnowCap />
+      <div id="EducationANDCertif">
         <EducationANDCertif />
       </div>
-      <div id="contact" className="relative">
-        <SnowCap />
+      <div id="contact">
         <Contact />
       </div>
 
