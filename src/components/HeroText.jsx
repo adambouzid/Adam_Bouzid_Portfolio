@@ -48,7 +48,7 @@ export const HeroText = () => {
           </div>
           {/* MobileView */}
           <div className="flex- flex-col space-y-6 md:hidden">
-            <motion.p className="text-4xl font-medium"
+            <motion.p className="text-2xl font-medium"
             variants={variants}
             initial="hidden"
             animate="visible"
@@ -56,7 +56,7 @@ export const HeroText = () => {
               {t('hero.greeting')}
               </motion.p>
             <div>
-              <motion.p className="text-5xl font-black text-neutral-300"
+              <motion.p className="text-3xl font-semibold text-neutral-300"
               variants={variants}
               initial="hidden"
               animate="visible"
@@ -69,9 +69,9 @@ export const HeroText = () => {
               animate="visible"
               transition={{ delay: 1.5 }}>
                 <FlipWords words={words} 
-                className=" font-bold text-white text-7xl"/>
+                className=" font-bold text-white text-5xl leading-tight"/>
               </motion.div>
-              <motion.p className="text-4xl font-black text-neutral-300"
+              <motion.p className="text-2xl font-semibold text-neutral-300"
               variants={variants}
               initial="hidden"
               animate="visible"
