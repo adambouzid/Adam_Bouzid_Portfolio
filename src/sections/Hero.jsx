@@ -17,15 +17,6 @@ const Hero = () => {
   const is4K = useMediaQuery({minWidth: "2561px"});
   const [pageGlow, setPageGlow] = useState(0);
   
-  // Detect Samsung Internet and other problematic browsers
-  const isSamsungBrowser = typeof navigator !== 'undefined' && 
-    (navigator.userAgent.includes('SamsungBrowser') || 
-     navigator.userAgent.includes('Samsung') ||
-     !window.WebGLRenderingContext);
-  
-  // Disable 3D for mobile OR Samsung browser
-  const shouldDisable3D = isMobile || isSamsungBrowser;
-  
  
   const getHilalProps = () => {
     if (isMobile) {
@@ -66,7 +57,7 @@ const Hero = () => {
           <ParallaxBackground />
           
           {/* Page-wide glow when mouse near Hilal - Desktop only */}
-          {!shouldDisable3D && (
+          {!isMobile && (
             <div 
               className="fixed inset-0 pointer-events-none z-10"
               style={{
@@ -75,59 +66,44 @@ const Hero = () => {
               }}
             />
           )}
-          {!shouldDisable3D && (
-            <figure className="absolute inset-0"
-                    style={{
-                      width: "100vw", 
-                      height: "100vh",
-                      pointerEvents: 'auto'
-                    }}
-            >
+          <figure className="absolute inset-0"
+                  style={{
+                    width: "100vw", 
+                    height: "100vh",
+                    pointerEvents: isMobile ? 'none' : 'auto'
+                  }}
+          >
+            
+            <Canvas camera={{position: [0, 1, 3]}}>
+              <Suspense fallback={<Loader />}>
+              {/* Lumières optimisées pour Hilal cyan lumineux */}
+              <ambientLight intensity={0.8} color="#e0f2fe" />
+              <directionalLight position={[5, 5, 5]} intensity={2} color="#38bdf8" />
+              <directionalLight position={[-5, -5, -5]} intensity={1.2} color="#0ea5e9" />
+              <pointLight position={[2, 3, 2]} intensity={3} color="#06b6d4" />
+              <pointLight position={[-2, 2, 1]} intensity={2} color="#22d3ee" />
+              <spotLight 
+                position={[0, 5, 0]} 
+                angle={0.6}
+                penumbra={1}
+                intensity={2}
+                target-position={[0, 0, 0]}
+              />
               
-              <Canvas camera={{position: [0, 1, 3]}}>
-                <Suspense fallback={<Loader />}>
-                {/* Lumières optimisées pour Hilal cyan lumineux */}
-                <ambientLight intensity={0.8} color="#e0f2fe" />
-                <directionalLight position={[5, 5, 5]} intensity={2} color="#38bdf8" />
-                <directionalLight position={[-5, -5, -5]} intensity={1.2} color="#0ea5e9" />
-                <pointLight position={[2, 3, 2]} intensity={3} color="#06b6d4" />
-                <pointLight position={[-2, 2, 1]} intensity={2} color="#22d3ee" />
-                <spotLight 
-                  position={[0, 5, 0]} 
-                  angle={0.6}
-                  penumbra={1}
-                  intensity={2}
-                  target-position={[0, 0, 0]}
-                />
-                
-                {/* Hilal - Croissant de lune mystique */}
-                <Float 
-                  speed={1.2} 
-                  rotationIntensity={0.2} 
-                  floatIntensity={0.4}
-                  floatingRange={[-0.1, 0.1]}
-                >
-                  <Hilal {...getHilalProps()} onGlowChange={setPageGlow} isMobile={isMobile} />
-                </Float>
-               </Suspense>
-                <Rig />
-              </Canvas>
-              
-            </figure>
-          )}
-          
-          {/* Samsung Internet browser notice */}
-          {isSamsungBrowser && !isMobile && (
-            <div className="fixed bottom-4 right-4 bg-blue-900/80 text-white p-3 rounded-lg text-sm max-w-xs z-50">
-              <p className="mb-2">For the best experience with 3D effects, try opening in Chrome or Firefox.</p>
-              <button 
-                onClick={() => document.querySelector('[class*="fixed bottom-4"]').style.display = 'none'}
-                className="text-blue-300 underline text-xs"
+              {/* Hilal - Croissant de lune mystique */}
+              <Float 
+                speed={1.2} 
+                rotationIntensity={0.2} 
+                floatIntensity={0.4}
+                floatingRange={[-0.1, 0.1]}
               >
-                Dismiss
-              </button>
-            </div>
-          )}
+                <Hilal {...getHilalProps()} onGlowChange={setPageGlow} isMobile={isMobile} />
+              </Float>
+             </Suspense>
+              <Rig />
+            </Canvas>
+            
+          </figure>
       </section>
   
     );
