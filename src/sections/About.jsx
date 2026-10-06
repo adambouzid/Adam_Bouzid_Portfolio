@@ -108,7 +108,7 @@ const About = () => {
             <p className="text-xs text-neutral-500">{t('about.getResume')}</p>
           </div>
           <a 
-            href="/assets/Adam_Bouzid_CV.pdf" 
+            href="/assets/cv_adam_bouzid.pdf" 
             download="Adam_Bouzid_CV.pdf"
             className="group relative z-20 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-white/10 text-slate-200 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 cursor-pointer"
             onClick={(e) => {
